@@ -7,10 +7,10 @@ rust-version = "1.70"
 
 description = "A Rust library for creating Kapacitor User Defined Functions (UDFs)"
 documentation = "https://docs.rs/kapacitor-udf"
-homepage = "https://github.com/niklasgusek/kapacitor-udf"
+homepage = "https://github.com/niklasgusek/kapacitor-udf-rs"
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/niklasgusek/kapacitor-udf"
+repository = "https://github.com/niklasgusek/kapacitor-udf-rs"
 
 categories = ["database", "asynchronous"]
 keywords = ["kapacitor", "udf", "influxdata", "timeseries", "streaming"]
