@@ -1,0 +1,67 @@
+[package]
+name = "kapacitor-udf"
+version = "0.1.0"
+authors = ["Niklas Gussek <niklas.gussek@gmail.com>"]
+edition = "2021"
+rust-version = "1.70"
+
+description = "A Rust library for creating Kapacitor User Defined Functions (UDFs)"
+documentation = "https://docs.rs/kapacitor-udf"
+homepage = "https://github.com/niklasgusek/kapacitor-udf"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/niklasgusek/kapacitor-udf"
+
+categories = ["database", "asynchronous"]
+keywords = ["kapacitor", "udf", "influxdata", "timeseries", "streaming"]
+
+[lib]
+name = "kapacitor_udf"
+crate-type = ["lib"]
+
+[dependencies]
+async-std = { version = "1.12.0", features = ["attributes"] }
+async-trait = "0.1.81"
+byteorder = "1.5.0"
+futures = "0.3.30"
+futures-util = "0.3.30"
+log = "0.4.22"
+pin-utils = "0.1"
+prost = "0.13.1"
+prost-derive = "0.13.1"
+signal-hook = "0.3.17"
+signal-hook-async-std = "0.2.2"
+tonic = "0.12.1"
+tracing = "0.1.40"
+
+[dev-dependencies]
+env_logger = "0.11.5"
+
+[build-dependencies]
+prost-build = "0.13.1"
+tonic-build = "0.12.1"
+
+[features]
+default = []
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[profile.dev]
+debug = true
+opt-level = 0
+
+[profile.release]
+codegen-units = 1
+debug = false
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true
+
+[profile.bench]
+codegen-units = 1
+debug = false
+lto = true
+opt-level = 3
